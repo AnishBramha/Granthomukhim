@@ -1,0 +1,177 @@
+{
+  "grammar": {
+
+    "//_comment_root_modifications": "Negation, Emphasis, Passive, Active, Compound",
+    "r_neg": [["p_r_neg", "r"]],
+    "r_emp": [["r", "r"]],
+    "r_pass": [["r", "s_r_pass"]],
+    "r_act": [["r", "s_r_act"]],
+    "r_comp": [["r", "s_r_mixed"]],
+    "s_r_mixed": [["p_r_comp", "r"]],
+
+    "//_comment_root_to_stem": "Derivation of Stems",
+    "s_inf": [["r", "s_s_inf"]],
+    "s_caus": [["r", "s_s_caus"]],
+    "s_nom": [["r", "s_s_nom"]],
+    "s_s_nom": [["a_s_nom", "s_s_g"]],
+    
+    "//_comment_connector_stems": "Linking generic stems to specific derivations",
+    "s_v": [["r_v", "s_v_stem"]],
+    "r_v" : [
+        ["r"],
+        ["s_caus"],
+        ["r_pass"],
+        ["r_act"],
+        ["r_comp"],
+        ["r_neg"],
+        ["r_emp"]
+    ],
+
+    "s_adj": [["s_nom"]],
+    "s_number": [["r"]],
+
+    "//_comment_logic": "We split the main Noun rule into 3 specific gender paths",
+    "w_n": [
+        ["w_n_m"], 
+        ["w_n_f"], 
+        ["w_n_n"]
+    ],
+
+    "//_comment_masculine_path": "Path for Masculine Nouns",
+    "w_n_m": [["s_nom_m", "s_n_end_m"]],
+    "s_n_end_m": [["p_n_case_m", "s_n_num"]],
+    "s_nom_m": [["r", "s_s_nom_m"]],
+    "s_s_nom_m": [["a_s_nom", "s_s_g_m"]],
+
+    "//_comment_feminine_path": "Path for Feminine Nouns",
+    "w_n_f": [["s_nom_f", "s_n_end_f"]],
+    "s_n_end_f": [["p_n_case_f", "s_n_num"]],
+    "s_nom_f": [["r", "s_s_nom_f"]],
+    "s_s_nom_f": [["a_s_nom", "s_s_g_f"]],
+
+    "//_comment_neuter_path": "Path for Neuter Nouns",
+    "w_n_n": [["s_nom_n", "s_n_end_n"]],
+    "s_n_end_n": [["p_n_case_n", "s_n_num"]],
+    "s_nom_n": [["r", "s_s_nom_n"]],
+    "s_s_nom_n": [["a_s_nom", "s_s_g_n"]],
+
+    "//_comment_morphology_pronoun": "Word formation: Pronoun",
+    "w_pro": [
+        ["w_pro_1"],
+        ["w_pro_2"],
+        ["w_pro_3"],
+        ["w_pro_rel"],
+        ["w_pro_int"]
+    ],
+
+    "w_pro_1": [["pro_case_1", "s_pro_mixed"]],
+    "w_pro_2": [["pro_case_2", "s_pro_mixed"]],
+    "w_pro_3": [["pro_case_3", "s_pro_mixed"]],
+    "w_pro_rel": [["pro_case_rel", "s_pro_mixed"]],
+    "w_pro_int": [["pro_case_int", "s_pro_mixed"]],
+
+    "s_pro_mixed": [["p_pro_g", "s_pro_num"]],
+
+    "//_comment_morphology_number": "Word formation: Number",
+    "w_num": [["s_number", "s_num_g"]],
+
+    "//_comment_morphology_adjective": "Word formation: Adjective",
+
+    "w_adj": [
+        ["w_adj_m"],
+        ["w_adj_f"],
+        ["w_adj_n"]
+    ],
+
+    "w_adj_m": [["s_nom_m", "s_adj_mixed_m"]],
+    "s_adj_mixed_m": [["s_adj_num", "s_adj_g_m"]],
+
+    "w_adj_f": [["s_nom_f", "s_adj_mixed_f"]],
+    "s_adj_mixed_f": [["s_adj_num", "s_adj_g_f"]],
+
+    "w_adj_n": [["s_nom_n", "s_adj_mixed_n"]],
+    "s_adj_mixed_n": [["s_adj_num", "s_adj_g_n"]],
+
+    "//_comment_morphology_adverb": "Word formation: Adverb (Locative Adjective)",
+    "w_adv": [["s_adj", "s_adj_loc"]],
+
+    "//_comment_morphology_verb": "Word formation: Verb",
+    "w_v": [["p_v_1", "s_v_ma"]],
+    "p_v_1": [["p_v_2", "s_v_t"]],
+    "p_v_2": [["p_v_3", "s_v_num"]],
+    "p_v_3": [["p_v_4", "s_v_g"]],
+    "p_v_4": [["p_v_5", "s_v_p"]],
+    "p_v_5": [["p_v_neg", "s_v"]]
+},
+
+
+  
+  "lexicon": {
+    "//_comment_roots": "Placeholders for Roots",
+    "r": ["kṛt", "cal", "trag", "bhakṣ", "khād", "āś", "dhan", "jña", "gam", "jīv", "khac", "grak", "vāy", "jal", "bal", "bhau", "paś", "sparś", "ut", "nil", "bhav", "mṛt", "bhān", "vēg", "likh", "vad", "śar", "man", "sṛṣṭ", "kāl", "mān", "kaḷ", "granth", "śṛṇ", "vid", "prak", "aŋk", "agn", "mōd", "ḷa", "gaḍḍ", "varṇ", "kaṭh", "ped", "maitr", "sah", "uṣṇ", "pūr", "ok", "maŕ", "cakr", "pît", "ataḷ", "bhay", "jag", "pāl", "kānt", "uñc", "mṛg", "mokk", "drav", "ik", "pill", "bhag", "kāy", "guṇḍ", "apr", "aŋ", "modal", "bhar", "poḍ", "pañ", "lūn", "ŕ", "rakṣ", "ūñc", "dūr", "nṛt", "ner", "egaḷ", "prati", "din", "dik", "gat", "rā", "vart"],
+
+    "//_comment_prefixes_root": "Root modification prefixes",
+    "p_r_neg": ["an"],
+    "p_r_comp": ["e"],
+
+    "//_comment_suffixes_derivation": "Stem forming suffixes",
+    "s_v_stem": ["a"],
+    "s_r_pass": ["asya"],
+    "s_r_act": ["arau"],
+    "s_s_inf": ["asa"],
+    "s_s_caus": ["asra"],
+    "a_s_nom": ["at"],
+    "s_s_g_m": ["a"],
+    "s_s_g_f": ["ā"],
+    "s_s_g_n": ["am"],
+    "s_n_num": ["", "ṭa", "va"],
+
+    "//_comment_case_endings": "Gender-specific case endings",
+    "//_comment_cases": "nom, acc, abl, dat, gen, in, ad, sub, voc",
+    "p_n_case_m": ["a", "am", "ēṇa", "āya", "ałe", "e", "aḷe", "aṇe", "ai"],
+    "p_n_case_f": ["ā", "ām", "ēṇā", "āyā", "āłē", "ē", "āḷē", "āṇē", "āmai"],
+    "p_n_case_n": ["", "anam", "anamēṇa", "amanāya", "anałē", "anē", "anaḷē", "anaṇē", "anamai"],
+
+    "//_comment_suffixes_pronoun": "Pronoun inflection",
+    "pro_case_1": ["mi", "mim", "mēṇa", "maya", "małē", "mē", "maḷē", "maṇē", "mahē"],
+    "pro_case_2": ["si", "sim", "sēṇa", "saya", "sałē", "sē", "saḷē", "saṇē", "sahē"],
+    "pro_case_3": ["ti", "tim", "tēṇa", "taya", "tałē", "tē", "taḷē", "taṇē", "tahē"],
+    "pro_case_rel": ["ki", "kim", "kēṇa", "kaya", "kałē", "kē", "kaḷē", "kaṇē", "kahē"],
+    "pro_case_int": ["yi", "yim", "yēṇa", "yaya", "yałē", "yē", "yaḷē", "yaṇē", "yahē"],
+    "p_pro_g": ["", "hē", "ham"],
+    "s_pro_num": ["", "ṭa", "va"],
+
+    "//_comment_suffixes_number": "Number inflection",
+    "s_num_g": ["", "hē", "ham"],
+
+    "//_comment_suffixes_adjective": "Adjective inflection",
+    "s_adj_num": ["", "ṭa", "va"],
+    "s_adj_g_m": ["a"],
+    "s_adj_g_f": ["hē"],
+    "s_adj_g_n": ["ham"],
+    "s_adj_loc": ["ē"],
+
+    "//_comment_suffixes_verb": "Verb inflection chain",
+    "s_v_ma": ["", "vē", "hā", "kā", "nā", "hō", "mā"],
+    "s_v_t": ["", "bhṛ", "bhū", "bhR", "ja", "jṛ"],
+    "s_v_num": ["", "ṭa", "va"],
+    "s_v_g": ["", "hē", "ham"],
+    "s_v_p": ["mi", "si", ""],
+    "p_v_neg": ["na", ""]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
